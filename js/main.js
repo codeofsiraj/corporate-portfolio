@@ -1,5 +1,5 @@
 /* -------------------------------------------------------------------
- * MOBEX AUTOMOTIVE INDUSTRIES - INTERACTIVE SCRIPT ENGINE
+ * AUTOFOCUS AUTOMOTIVE INDUSTRIES - INTERACTIVE SCRIPT ENGINE
  * (HERO SLIDER, ACCORDIONS, MOBILE DRAWER, FORM FEEDBACK)
  * ------------------------------------------------------------------- */
 
@@ -133,7 +133,7 @@ function initForms() {
       const alert = document.getElementById('form-alert');
       if (alert) {
         alert.className = 'alert-banner success';
-        alert.textContent = 'Thank you! Your technical inquiry has been submitted successfully to Mobex Corporate Engineering.';
+        alert.textContent = 'Thank you! Your technical inquiry has been submitted successfully to Autofocus Corporate Engineering.';
         alert.style.display = 'block';
         contactForm.reset();
       }

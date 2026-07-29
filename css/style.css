@@ -1,5 +1,5 @@
 /* -------------------------------------------------------------------
- * MOBEX AUTOMOTIVE INDUSTRIES - MASTER GLOBAL LAYOUT ARCHITECTURE
+ * AUTOFOCUS AUTOMOTIVE INDUSTRIES - MASTER GLOBAL LAYOUT ARCHITECTURE
  * DARK & SKY BLUE THEME (PRODUCTION SYSTEM AUDITED & STANDARDIZED)
  * ------------------------------------------------------------------- */
 
@@ -737,22 +737,7 @@ h6:before, h6:after,
   transform: scale(1.05);
 }
 
-.video-play-btn {
-  position: relative;
-  z-index: 10;
-  width: 80px;
-  height: 80px;
-  background: var(--accent-gold);
-  color: #0B0E14;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  cursor: pointer;
-  box-shadow: 0 0 30px rgba(56, 189, 248, 0.5);
-  transition: all var(--transition-normal);
-}
+
 
 .video-play-btn:hover {
   transform: scale(1.1);
@@ -1701,11 +1686,7 @@ h6:before, h6:after,
     height: 220px !important;
   }
 
-  .video-play-btn {
-    width: 56px !important;
-    height: 56px !important;
-    font-size: 1.4rem !important;
-  }
+  
 
   /* Timeline Mobile */
   .timeline-container::before {
@@ -1790,4 +1771,33 @@ h6:before, h6:after,
   body {
     padding-bottom: 56px !important;
   }
+}
+
+/* YouTube-Style Blue Play Button Component */
+.video-play-btn {
+  position: relative;
+  z-index: 10;
+  width: 84px;
+  height: 56px;
+  background: var(--accent-gold);
+  color: #FFFFFF;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(56, 189, 248, 0.4);
+  transition: all var(--transition-normal);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.video-play-btn i {
+  margin-left: 4px; /* Optical center alignment for play triangle */
+}
+
+.video-play-btn:hover {
+  transform: scale(1.1);
+  background: var(--accent-gold-bright);
+  box-shadow: 0 0 30px rgba(56, 189, 248, 0.6);
 }
