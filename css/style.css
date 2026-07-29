@@ -113,7 +113,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* Global Pseudo-Element Line Removal */
-*:before, *:after,
+
 h1:before, h1:after,
 h2:before, h2:after,
 h3:before, h3:after,
@@ -1801,3 +1801,34 @@ h6:before, h6:after,
   background: var(--accent-gold-bright);
   box-shadow: 0 0 30px rgba(56, 189, 248, 0.6);
 }
+
+/* ===================================================================
+ * FONTAWESOME ICON RESTORATION ENGINE
+ * (RESTORES ::before & ::after PSEUDO-ELEMENTS FOR FONTAWESOME ICONS)
+ * =================================================================== */
+.fa, .fas, .far, .fab, .fa-solid, .fa-regular, .fa-brands,
+[class^="fa-"]::before, [class*=" fa-"]::before,
+[class^="fa-"]::after, [class*=" fa-"]::after {
+  content: initial !important;
+  display: inline-block !important;
+  width: auto !important;
+  height: auto !important;
+  font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
+}
+
+.fa-play::before { content: "\f04b" !important; }
+.fa-trophy::before { content: "\f091" !important; }
+.fa-award::before { content: "\f559" !important; }
+.fa-bolt::before { content: "\f0e7" !important; }
+.fa-chevron-left::before { content: "\f053" !important; }
+.fa-chevron-right::before { content: "\f054" !important; }
+.fa-bars::before { content: "\f0c9" !important; }
+.fa-xmark::before { content: "\f00d" !important; }
+.fa-house::before { content: "\f015" !important; }
+.fa-building::before { content: "\f19c" !important; }
+.fa-newspaper::before { content: "\f1ea" !important; }
+.fa-envelope::before { content: "\f0e0" !important; }
+.fa-phone::before { content: "\f095" !important; }
+.fa-location-dot::before { content: "\f3c5" !important; }
+.fa-star::before { content: "\f005" !important; }
+.fa-arrow-right::before { content: "\f061" !important; }
