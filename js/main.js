@@ -1,241 +1,85 @@
 /* -------------------------------------------------------------------
- * MOBEX AUTOMOTIVE INDUSTRIES - CORPORATE INTERACTION CONTROLLER
- * FULL-WIDTH EDGE-TO-EDGE HERO SLIDER & VIDEO SHOWCASE ENGINE
+ * MOBEX AUTOMOTIVE INDUSTRIES - INTERACTIVE SCRIPT ENGINE
+ * (HERO SLIDER, ACCORDIONS, MOBILE DRAWER, FORM FEEDBACK)
  * ------------------------------------------------------------------- */
 
 document.addEventListener('DOMContentLoaded', () => {
   initHeroSlider();
-  initVideoPlayer();
-  initCountdownTimer();
-  initAnimatedCounters();
-  initProgressBars();
-  initAccordion();
-  initFormsValidation();
+  initAccordions();
   initMobileDrawer();
+  initForms();
 });
 
-/* 1. Hero Slider Engine (Full-Width Edge-to-Edge) */
+/* Hero Slider Engine */
 function initHeroSlider() {
   const slides = document.querySelectorAll('.hero-slide');
   const dots = document.querySelectorAll('.hero-slider-dot');
-  const prevBtn = document.querySelector('.hero-slider-fullwidth .hero-nav-arrow.prev') || document.querySelector('.hero-nav-arrow.prev');
-  const nextBtn = document.querySelector('.hero-slider-fullwidth .hero-nav-arrow.next') || document.querySelector('.hero-nav-arrow.next');
+  const prevBtn = document.querySelector('.hero-nav-arrow.prev');
+  const nextBtn = document.querySelector('.hero-nav-arrow.next');
   
-  if (slides.length === 0) return;
+  if (!slides.length) return;
   
   let currentSlide = 0;
-  let slideTimer = null;
-  const autoPlayDelay = 5000;
-  
+  let autoplayInterval;
+
   function showSlide(index) {
     slides.forEach((slide, i) => {
-      if (i === index) {
-        slide.classList.add('active');
-      } else {
-        slide.classList.remove('active');
-      }
+      slide.classList.toggle('active', i === index);
     });
-    
     dots.forEach((dot, i) => {
-      if (i === index) {
-        dot.classList.add('active');
-      } else {
-        dot.classList.remove('active');
-      }
+      dot.classList.toggle('active', i === index);
     });
-    
     currentSlide = index;
   }
-  
+
   function nextSlide() {
-    let nextIndex = (currentSlide + 1) % slides.length;
-    showSlide(nextIndex);
+    let next = (currentSlide + 1) % slides.length;
+    showSlide(next);
   }
-  
+
   function prevSlide() {
-    let prevIndex = (currentSlide - 1 + slides.length) % slides.length;
-    showSlide(prevIndex);
+    let prev = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(prev);
   }
-  
-  function startAutoPlay() {
-    stopAutoPlay();
-    slideTimer = setInterval(nextSlide, autoPlayDelay);
-  }
-  
-  function stopAutoPlay() {
-    if (slideTimer) {
-      clearInterval(slideTimer);
-      slideTimer = null;
-    }
-  }
-  
+
   if (nextBtn) {
-    nextBtn.addEventListener('click', (e) => {
-      e.preventDefault();
+    nextBtn.addEventListener('click', () => {
       nextSlide();
-      startAutoPlay();
+      resetAutoplay();
     });
   }
-  
+
   if (prevBtn) {
-    prevBtn.addEventListener('click', (e) => {
-      e.preventDefault();
+    prevBtn.addEventListener('click', () => {
       prevSlide();
-      startAutoPlay();
+      resetAutoplay();
     });
   }
-  
+
   dots.forEach((dot, i) => {
-    dot.addEventListener('click', (e) => {
-      e.preventDefault();
+    dot.addEventListener('click', () => {
       showSlide(i);
-      startAutoPlay();
+      resetAutoplay();
     });
   });
-  
-  const sliderContainer = document.querySelector('.hero-section');
-  if (sliderContainer) {
-    sliderContainer.addEventListener('mouseenter', stopAutoPlay);
-    sliderContainer.addEventListener('mouseleave', startAutoPlay);
+
+  function startAutoplay() {
+    autoplayInterval = setInterval(nextSlide, 5000);
   }
-  
-  let touchStartX = 0;
-  let touchEndX = 0;
-  
-  if (sliderContainer) {
-    sliderContainer.addEventListener('touchstart', (e) => {
-      touchStartX = e.changedTouches[0].screenX;
-    }, { passive: true });
-    
-    sliderContainer.addEventListener('touchend', (e) => {
-      touchEndX = e.changedTouches[0].screenX;
-      handleSwipe();
-    }, { passive: true });
+
+  function resetAutoplay() {
+    clearInterval(autoplayInterval);
+    startAutoplay();
   }
-  
-  function handleSwipe() {
-    const swipeThreshold = 50;
-    if (touchEndX < touchStartX - swipeThreshold) {
-      nextSlide();
-      startAutoPlay();
-    } else if (touchEndX > touchStartX + swipeThreshold) {
-      prevSlide();
-      startAutoPlay();
-    }
-  }
-  
-  showSlide(0);
-  startAutoPlay();
+
+  startAutoplay();
 }
 
-/* 2. Corporate Video Showcase Controller */
-function initVideoPlayer() {
-  const playBtn = document.getElementById('company-video-play-btn');
-  const videoWrapper = document.getElementById('company-video-wrapper');
+/* Accordions Engine */
+function initAccordions() {
+  const accordionHeaders = document.querySelectorAll('.accordion-header');
   
-  if (!playBtn || !videoWrapper) return;
-  
-  playBtn.addEventListener('click', () => {
-    videoWrapper.innerHTML = `
-      <iframe width="100%" height="380" src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?autoplay=1&rel=0" 
-        title="Mobex Automotive Industries Corporate Video" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen style="border: none; border-radius: 12px;">
-      </iframe>`;
-  });
-}
-
-/* 3. Pre-Header Countdown Timer Widget */
-function initCountdownTimer() {
-  const daysEl = document.getElementById('timer-days');
-  const hoursEl = document.getElementById('timer-hours');
-  const minutesEl = document.getElementById('timer-minutes');
-  const secondsEl = document.getElementById('timer-seconds');
-  
-  if (!daysEl || !hoursEl || !minutesEl || !secondsEl) return;
-  
-  const targetDate = new Date().getTime() + (30 * 24 * 60 * 60 * 1000);
-  
-  function updateTimer() {
-    const now = new Date().getTime();
-    const distance = targetDate - now;
-    
-    if (distance < 0) return;
-    
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
-    daysEl.textContent = String(days).padStart(2, '0');
-    hoursEl.textContent = String(hours).padStart(2, '0');
-    minutesEl.textContent = String(minutes).padStart(2, '0');
-    secondsEl.textContent = String(seconds).padStart(2, '0');
-  }
-  
-  updateTimer();
-  setInterval(updateTimer, 1000);
-}
-
-/* 4. Scroll-Triggered Animated Counters */
-function initAnimatedCounters() {
-  const counters = document.querySelectorAll('.counter-number');
-  if (counters.length === 0) return;
-  
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const counter = entry.target;
-        const target = parseInt(counter.getAttribute('data-target'), 10);
-        const duration = 2000;
-        const stepTime = 30;
-        const steps = duration / stepTime;
-        const increment = target / steps;
-        let current = 0;
-        
-        const timer = setInterval(() => {
-          current += increment;
-          if (current >= target) {
-            counter.textContent = target.toLocaleString();
-            clearInterval(timer);
-          } else {
-            counter.textContent = Math.floor(current).toLocaleString();
-          }
-        }, stepTime);
-        
-        obs.unobserve(counter);
-      }
-    });
-  }, { threshold: 0.4 });
-  
-  counters.forEach(counter => observer.observe(counter));
-}
-
-/* 5. Scroll-Triggered Progress Meter Bars */
-function initProgressBars() {
-  const bars = document.querySelectorAll('.progress-bar');
-  if (bars.length === 0) return;
-  
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const bar = entry.target;
-        const percent = bar.getAttribute('data-percentage');
-        bar.style.width = percent + '%';
-        obs.unobserve(bar);
-      }
-    });
-  }, { threshold: 0.3 });
-  
-  bars.forEach(bar => observer.observe(bar));
-}
-
-/* 6. FAQ Accordion Logic */
-function initAccordion() {
-  const headers = document.querySelectorAll('.accordion-header');
-  
-  headers.forEach(header => {
+  accordionHeaders.forEach(header => {
     header.addEventListener('click', () => {
       const item = header.parentElement;
       const isActive = item.classList.contains('active');
@@ -249,51 +93,72 @@ function initAccordion() {
   });
 }
 
-/* 7. Form Validations & Alert Banners */
-function initFormsValidation() {
-  const newsletterForm = document.getElementById('newsletter-form');
-  if (newsletterForm) {
-    newsletterForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const emailInput = newsletterForm.querySelector('input[type="email"]');
-      const alertBox = document.getElementById('newsletter-alert');
-      
-      if (emailInput && emailInput.value.trim().includes('@')) {
-        alertBox.className = 'alert-banner success';
-        alertBox.textContent = '✓ Thank you! You have successfully subscribed to corporate updates.';
-        alertBox.style.display = 'block';
-        emailInput.value = '';
-      } else {
-        alertBox.className = 'alert-banner error';
-        alertBox.textContent = '⚠️ Please enter a valid corporate email address.';
-        alertBox.style.display = 'block';
-      }
-    });
-  }
-}
-
-/* 8. Mobile Drawer Navigation Toggle */
+/* Mobile Drawer Engine */
 function initMobileDrawer() {
-  const toggleBtn = document.getElementById('mobile-toggle-btn');
-  const closeBtn = document.getElementById('drawer-close-btn');
-  const drawer = document.getElementById('mobile-drawer');
-  const overlay = document.getElementById('drawer-overlay');
-  
+  const toggleBtn = document.querySelector('.mobile-menu-toggle');
+  const drawer = document.querySelector('.mobile-drawer');
+  const overlay = document.querySelector('.drawer-overlay');
+  const closeBtn = document.querySelector('.drawer-close');
+  const drawerLinks = document.querySelectorAll('.drawer-link');
+
   if (!toggleBtn || !drawer || !overlay) return;
-  
+
   function openDrawer() {
     drawer.classList.add('active');
     overlay.classList.add('active');
     document.body.style.overflow = 'hidden';
   }
-  
+
   function closeDrawer() {
     drawer.classList.remove('active');
     overlay.classList.remove('active');
     document.body.style.overflow = '';
   }
-  
+
   toggleBtn.addEventListener('click', openDrawer);
   if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
   overlay.addEventListener('click', closeDrawer);
+
+  drawerLinks.forEach(link => {
+    link.addEventListener('click', closeDrawer);
+  });
+}
+
+/* Forms Feedback Engine */
+function initForms() {
+  const contactForm = document.getElementById('corporate-contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const alert = document.getElementById('form-alert');
+      if (alert) {
+        alert.className = 'alert-banner success';
+        alert.textContent = 'Thank you! Your technical inquiry has been submitted successfully to Mobex Corporate Engineering.';
+        alert.style.display = 'block';
+        contactForm.reset();
+      }
+    });
+  }
+
+  const inquiryForm = document.getElementById('standalone-inquiry-form');
+  if (inquiryForm) {
+    inquiryForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const alert = document.getElementById('inquiry-alert');
+      if (alert) {
+        alert.className = 'alert-banner success';
+        alert.textContent = 'Thank you! Your whitepaper technical request has been received.';
+        alert.style.display = 'block';
+        inquiryForm.reset();
+      }
+    });
+  }
+}
+
+/* Whitepaper Article Reader Engine */
+function openArticle(articleId) {
+  const readerSection = document.getElementById('article-reader-section');
+  if (readerSection) {
+    readerSection.scrollIntoView({ behavior: 'smooth' });
+  }
 }
