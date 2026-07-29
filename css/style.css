@@ -1,6 +1,6 @@
 /* -------------------------------------------------------------------
- * MOBEX AUTOMOTIVE INDUSTRIES - MASTER CORPORATE DESIGN SYSTEM
- * DARK & SKY BLUE THEME (PRODUCTION AUDITED & STANDARDIZED)
+ * MOBEX AUTOMOTIVE INDUSTRIES - MASTER GLOBAL LAYOUT ARCHITECTURE
+ * DARK & SKY BLUE THEME (PRODUCTION SYSTEM AUDITED & STANDARDIZED)
  * ------------------------------------------------------------------- */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap');
@@ -149,20 +149,23 @@ h6:before, h6:after,
   color: var(--accent-gold);
 }
 
-/* Standardized Container & Layout System */
+/* -------------------------------------------------------------------
+ * MASTER CONTAINER & SECTION LAYOUT SYSTEM
+ * ------------------------------------------------------------------- */
 .container {
   max-width: var(--container-width);
   margin: 0 auto;
   padding: 0 32px;
+  width: 100%;
 }
 
 .section-padding {
-  padding: 100px 0;
+  padding: 90px 0;
 }
 
 .section-header {
   text-align: center;
-  margin-bottom: 54px;
+  margin-bottom: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -176,7 +179,7 @@ h6:before, h6:after,
   color: var(--accent-gold);
   text-transform: uppercase;
   letter-spacing: 2.5px;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   display: block;
   text-align: center;
 }
@@ -190,7 +193,7 @@ h6:before, h6:after,
   border: none !important;
 }
 
-/* Standardized Button Component */
+/* Button Component */
 .et-button {
   display: inline-flex;
   align-items: center;
@@ -420,10 +423,9 @@ h6:before, h6:after,
 }
 
 /* -------------------------------------------------------------------
- * HERO SECTION (5% TOP WS | 72% BANNER | 23% BOTTOM WS)
- * ASYMMETRIC BANNER COMPOSITION (TEXT PANEL LEFT | 3D AWARDS RIGHT)
+ * HOME PAGE HERO SLIDESHOW (index.html ONLY)
  * ------------------------------------------------------------------- */
-.hero-section {
+.home-hero-slideshow {
   width: 100vw;
   max-width: 100%;
   height: calc(100vh - 80px);
@@ -609,7 +611,19 @@ h6:before, h6:after,
   transform: scale(1.2);
 }
 
-/* Page Hero Banner (Secondary Pages) */
+/* -------------------------------------------------------------------
+ * SECONDARY PAGE BANNER (about.html, blog-post.html, contact.html)
+ * ------------------------------------------------------------------- */
+.page-banner {
+  width: 100%;
+  height: auto !important;
+  min-height: auto !important;
+  padding: 60px 0 50px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-light);
+  text-align: center;
+}
+
 .hero-tag {
   display: inline-flex;
   align-items: center;
@@ -622,20 +636,21 @@ h6:before, h6:after,
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 1.5px;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   text-transform: uppercase;
 }
 
 .hero-title {
   font-size: 2.8rem;
   font-weight: 700;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .hero-description {
   font-size: 1.05rem;
   color: var(--text-muted);
-  max-width: 700px;
+  max-width: 750px;
+  margin: 0 auto;
   line-height: 1.7;
 }
 
@@ -1419,7 +1434,13 @@ h6:before, h6:after,
     padding: 0 20px;
   }
   .section-padding {
-    padding: 70px 0;
+    padding: 60px 0;
+  }
+  .page-banner {
+    padding: 40px 0 30px;
+  }
+  .hero-title {
+    font-size: 2rem;
   }
   .section-title {
     font-size: 1.8rem;
