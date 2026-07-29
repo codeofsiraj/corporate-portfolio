@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insights & Engineering Whitepapers | Mobex Automotive Industries</title>
+  <meta name="description" content="Explore Mobex Automotive Industries research publications, metallurgical whitepapers, and manufacturing updates.">
+  <link rel="stylesheet" href="css/style.css?v=2026_v100">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- MAIN HEADER & NAVIGATION -->
+  <header class="main-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo">
+        <div class="logo-icon">M</div>
+        <div class="logo-text">MOBEX <span>IND</span></div>
+      </a>
+      
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About Us</a>
+        <a href="blog-post.html" class="nav-link active">Insights & Whitepapers</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+      
+      <div class="header-actions">
+        <a href="contact.html" class="et-button small">Partner With Us</a>
+      </div>
+      
+      <button class="mobile-menu-toggle" id="mobile-toggle-btn" aria-label="Toggle Navigation Menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE OFF-CANVAS DRAWER -->
+  <div class="drawer-overlay" id="drawer-overlay"></div>
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div>
+      <div class="drawer-header">
+        <div class="brand-logo">
+          <div class="logo-icon">M</div>
+          <div class="logo-text">MOBEX <span>IND</span></div>
+        </div>
+        <button class="drawer-close" id="drawer-close-btn" aria-label="Close Drawer"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="drawer-menu">
+        <a href="index.html" class="drawer-link">Home</a>
+        <a href="about.html" class="drawer-link">About Us</a>
+        <a href="blog-post.html" class="drawer-link">Insights & Whitepapers</a>
+        <a href="contact.html" class="drawer-link">Contact</a>
+      </div>
+    </div>
+    <div>
+      <a href="contact.html" class="et-button" style="width: 100%;">Partner With Us</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- PAGE HERO BANNER -->
+    <section class="hero-section" style="min-height: 40vh; padding: 60px 0;">
+      <div class="hero-bg-grid"></div>
+      <div class="container">
+        <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+          <div class="hero-tag"><i class="fa-solid fa-newspaper"></i> RESEARCH & KNOWLEDGE HUB</div>
+          <h1 class="hero-title" style="font-size: 3rem;">CORPORATE INSIGHTS & <span class="highlight">WHITEPAPERS</span></h1>
+          <p class="hero-description" style="margin: 0 auto;">Browse technical publications, engineering research, and manufacturing technology updates from Mobex Automotive Industries.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 1: ALL ARTICLES CATALOG HUB (VISITORS CAN SELECT ANY ARTICLE) -->
+    <section class="section-padding" style="background: var(--bg-secondary);">
+      <div class="container">
+        <!-- Section Header with Small Heading Above Big Heading, Centered -->
+        <div class="section-header">
+          <span class="section-subtitle">Publications Catalog</span>
+          <h2 class="section-title">EXPLORE ALL RESEARCH ARTICLES</h2>
+        </div>
+
+        <div class="blog-grid">
+          <!-- Article Card 1 -->
+          <div class="blog-card" onclick="openArticle('article-1')">
+            <div class="blog-thumb-placeholder"><i class="fa-solid fa-newspaper fa-2x"></i></div>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span><i class="fa-regular fa-calendar"></i> July 20, 2026</span>
+                <span><i class="fa-regular fa-clock"></i> 5 min read</span>
+              </div>
+              <h3 class="blog-title">Advances in Metallurgical Alloy Treatments for Heavy Brake Rotors</h3>
+              <p class="blog-excerpt">An analysis of high-carbon matrix formulations designed to eliminate micro-cracking during extreme thermal cycling.</p>
+              <span class="read-more-link">Open Full Article <i class="fa-solid fa-chevron-right"></i></span>
+            </div>
+          </div>
+
+          <!-- Article Card 2 -->
+          <div class="blog-card" onclick="openArticle('article-2')">
+            <div class="blog-thumb-placeholder"><i class="fa-solid fa-charging-station fa-2x"></i></div>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span><i class="fa-regular fa-calendar"></i> July 14, 2026</span>
+                <span><i class="fa-regular fa-clock"></i> 7 min read</span>
+              </div>
+              <h3 class="blog-title">Optimizing Thermal Plates in Next-Generation Commercial EV Platforms</h3>
+              <p class="blog-excerpt">Exploring fluid channel geometry optimization for maximum battery module heat extraction under heavy acceleration.</p>
+              <span class="read-more-link">Open Full Article <i class="fa-solid fa-chevron-right"></i></span>
+            </div>
+          </div>
+
+          <!-- Article Card 3 -->
+          <div class="blog-card" onclick="openArticle('article-3')">
+            <div class="blog-thumb-placeholder"><i class="fa-solid fa-industry fa-2x"></i></div>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span><i class="fa-regular fa-calendar"></i> June 28, 2026</span>
+                <span><i class="fa-regular fa-clock"></i> 4 min read</span>
+              </div>
+              <h3 class="blog-title">Mobex Expands Automated Robotics Line at Frankfurt Facility</h3>
+              <p class="blog-excerpt">Our newest 50,000 sq. ft. plant expansion increases annual OEM assembly output by 35% to meet European demand.</p>
+              <span class="read-more-link">Open Full Article <i class="fa-solid fa-chevron-right"></i></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: SINGLE ARTICLE READER CONTAINER -->
+    <section class="section-padding" id="article-reader-section">
+      <div class="container">
+        <!-- Section Header with Small Heading Above Big Heading, Centered -->
+        <div class="section-header">
+          <span class="section-subtitle">Full Article View</span>
+          <h2 class="section-title">READ PUBLICATION</h2>
+        </div>
+
+        <div class="single-post-grid">
+          
+          <!-- Article Body -->
+          <article class="post-article" id="active-article-container">
+            <header class="post-header">
+              <span class="portfolio-category">ENGINEERING WHITEPAPER</span>
+              <h1 id="art-title" style="font-size: 2.3rem; margin: 12px 0 16px; line-height: 1.2;">ADVANCES IN METALLURGICAL ALLOY TREATMENTS FOR HEAVY BRAKE ROTORS</h1>
+              
+              <div class="blog-meta" style="font-size: 0.9rem;">
+                <span id="art-author"><i class="fa-regular fa-user"></i> By Dr. Aris Thorne, Lead Materials Engineer</span>
+                <span id="art-date"><i class="fa-regular fa-calendar"></i> July 20, 2026</span>
+                <span><i class="fa-regular fa-folder"></i> Braking Systems R&D</span>
+              </div>
+            </header>
+
+            <div class="post-body" id="art-body">
+              <p>Commercial heavy-duty transport vehicles subject braking components to thermal loads exceeding 650°C during prolonged hill descents and emergency deceleration cycles. Traditional gray iron rotors often suffer from microscopic thermal stress cracking, leading to premature pad wear, judder, and structural failure.</p>
+              
+              <p>At Mobex Automotive Industries, our materials engineering lab has perfected a proprietary high-carbon, molybdenum-doped alloy formulation paired with automated cryogenic stress relief treatments.</p>
+
+              <blockquote>
+                "By integrating high-purity molybdenum micro-particles into a GG20HC iron matrix, Mobex rotors demonstrate a 42% increase in thermal fatigue resistance compared to industry baseline standards."
+              </blockquote>
+
+              <h3 style="font-size: 1.5rem; margin: 28px 0 14px; color: var(--accent-gold);">KEY METALLURGICAL BENCHMARKS</h3>
+              
+              <p>During rigorous dynamometer testing following SAE J2707 protocol, Mobex alloy rotors were evaluated across 1,000 continuous full-stop braking cycles under heavy load simulation:</p>
+
+              <table style="width: 100%; border-collapse: collapse; margin: 20px 0; background: var(--bg-secondary); border: var(--glass-border); text-align: left;">
+                <thead>
+                  <tr style="border-bottom: 2px solid var(--accent-gold);">
+                    <th style="padding: 12px 16px;">Test Property</th>
+                    <th style="padding: 12px 16px;">Standard GG25 Gray Iron</th>
+                    <th style="padding: 12px 16px;">Mobex HC-Mo Alloy</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="border-bottom: 1px solid var(--border-light);">
+                    <td style="padding: 10px 16px;">Tensile Strength (MPa)</td>
+                    <td style="padding: 10px 16px;">250 MPa</td>
+                    <td style="padding: 10px 16px; color: var(--accent-gold); font-weight: 700;">340 MPa</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid var(--border-light);">
+                    <td style="padding: 10px 16px;">Thermal Conductivity (W/m·K)</td>
+                    <td style="padding: 10px 16px;">48 W/m·K</td>
+                    <td style="padding: 10px 16px; color: var(--accent-gold); font-weight: 700;">56 W/m·K</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 10px 16px;">Micro-Cracking Threshold Cycles</td>
+                    <td style="padding: 10px 16px;">380 Cycles</td>
+                    <td style="padding: 10px 16px; color: var(--accent-gold); font-weight: 700;">950+ Cycles</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <h3 style="font-size: 1.5rem; margin: 28px 0 14px; color: var(--accent-gold);">CRYOGENIC STRESS RELIEF PROCESS</h3>
+              <p>Following high-precision CNC turning, every Mobex rotor undergoes a 36-hour computer-controlled deep cryogenic treatment at -185°C. This sub-zero conditioning transforms residual soft austenite into stable hard martensite, eliminating internal casting stresses and preventing rotor warping over extended service lifespans.</p>
+
+              <div style="margin-top: 40px; padding: 24px; background: var(--bg-secondary); border-radius: 8px; border: var(--glass-border); display: flex; gap: 20px; align-items: center;">
+                <div class="author-avatar" style="width: 64px; height: 64px; font-size: 1.4rem;">AT</div>
+                <div>
+                  <h4 style="font-size: 1.2rem;">Dr. Aris Thorne</h4>
+                  <p style="font-size: 0.85rem; color: var(--accent-gold); margin-bottom: 6px;">Chief Metallurgist & Lead Researcher</p>
+                  <p style="font-size: 0.85rem; color: var(--text-muted);">Dr. Thorne holds a Ph.D. in Materials Science from MIT and oversees Mobex's advanced metallurgy laboratory in Frankfurt.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Sidebar -->
+          <aside>
+            <div class="sidebar-widget">
+              <h4 class="widget-title">SEARCH INSIGHTS</h4>
+              <div style="display: flex; gap: 6px;">
+                <input type="text" placeholder="Search topics..." class="form-input" style="padding: 10px;">
+                <button class="et-button small" aria-label="Search Whitepapers"><i class="fa-solid fa-magnifying-glass"></i></button>
+              </div>
+            </div>
+
+            <div class="sidebar-widget">
+              <h4 class="widget-title">RESEARCH CATEGORIES</h4>
+              <ul class="footer-links">
+                <li><a href="#" onclick="openArticle('article-1')" style="display: flex; justify-content: space-between;"><span>Braking Systems</span> <span>(14)</span></a></li>
+                <li><a href="#" onclick="openArticle('article-2')" style="display: flex; justify-content: space-between;"><span>EV Thermal Management</span> <span>(9)</span></a></li>
+                <li><a href="#" onclick="openArticle('article-3')" style="display: flex; justify-content: space-between;"><span>Robotics & Assembly</span> <span>(7)</span></a></li>
+              </ul>
+            </div>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: STANDALONE SEPARATE TECHNICAL INQUIRY FORM SECTION (BELOW THE ARTICLE) -->
+    <section class="standalone-inquiry-section" id="inquiry-form-section">
+      <div class="container">
+        <!-- Section Header with Small Heading Above Big Heading, Centered -->
+        <div class="section-header">
+          <span class="section-subtitle">Technical Discussion</span>
+          <h2 class="section-title">LEAVE A TECHNICAL INQUIRY</h2>
+        </div>
+
+        <div class="inquiry-box">
+          <p style="text-align: center; color: var(--text-muted); margin-bottom: 30px; max-width: 650px; margin-left: auto; margin-right: auto;">Have a question about our engineering whitepapers, metallurgical specs, or custom prototyping testing? Submit your technical inquiry to our lab team below.</p>
+          
+          <div class="alert-banner" id="inquiry-alert"></div>
+
+          <form id="standalone-inquiry-form">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;" class="form-group">
+              <div>
+                <label class="form-label">Full Name *</label>
+                <input type="text" id="inquiry-name" class="form-input" placeholder="e.g. Dr. Marcus Vance" required>
+              </div>
+              <div>
+                <label class="form-label">Corporate Email *</label>
+                <input type="email" id="inquiry-email" class="form-input" placeholder="marcus@company.com" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Article / Topic Reference</label>
+              <select class="form-select" id="inquiry-topic">
+                <option value="brakes">Metallurgical Alloy Treatments (Brake Rotors)</option>
+                <option value="thermal">Thermal Plate Optimization in Commercial EVs</option>
+                <option value="robotics">Frankfurt Plant Automation & Prototyping</option>
+                <option value="general">General Materials Engineering Inquiry</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Technical Question / Feedback *</label>
+              <textarea id="inquiry-message" rows="5" class="form-textarea" placeholder="Detail your technical question, alloy requirement, or testing parameter..." required></textarea>
+            </div>
+
+            <div style="text-align: center;">
+              <button type="submit" class="et-button">Submit Technical Inquiry <i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- CORPORATE FOOTER -->
+  <footer class="et-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand-logo" style="margin-bottom: 20px;">
+            <div class="logo-icon">M</div>
+            <div class="logo-text">MOBEX <span>IND</span></div>
+          </div>
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 24px; line-height: 1.6;">Mobex Automotive Industries is a global leader in OEM automotive component manufacturing, supply chain solutions, and engineering technology.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Mobex</a></li>
+            <li><a href="blog-post.html">Corporate Insights</a></li>
+            <li><a href="contact.html">Global Offices</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="about.html#timeline">Company Timeline</a></li>
+            <li><a href="about.html#team">Executive Leadership</a></li>
+            <li><a href="contact.html">Global Offices</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Headquarters</h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px;"><i class="fa-solid fa-location-dot highlight"></i> 7031 N 35th Ave, Phoenix, AZ, United States</p>
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px;"><i class="fa-solid fa-phone highlight"></i> +1 800 555 8464</p>
+          <p style="color: var(--text-muted); font-size: 0.9rem;"><i class="fa-solid fa-envelope highlight"></i> corporate@mobex-auto.com</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>Copyright © 2026 Mobex Automotive Industries. All Rights Reserved.</p>
+        <div style="display: flex; gap: 20px;">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MOBILE BOTTOM STICKY DOCK (`sticky-dashboard`) -->
+  <div class="sticky-dashboard">
+    <div class="dock-items">
+      <a href="index.html" class="dock-item">
+        <i class="fa-solid fa-house dock-icon"></i>
+        <span>Home</span>
+      </a>
+      <a href="about.html" class="dock-item">
+        <i class="fa-solid fa-building dock-icon"></i>
+        <span>About</span>
+      </a>
+      <a href="blog-post.html" class="dock-item active">
+        <i class="fa-solid fa-newspaper dock-icon"></i>
+        <span>Insights</span>
+      </a>
+      <a href="contact.html" class="dock-item">
+        <i class="fa-solid fa-envelope dock-icon"></i>
+        <span>Contact</span>
+      </a>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
